@@ -19,12 +19,13 @@ const App = () => {
   
   console.log({authUser});
 
-  if (true) {
+  if (isCheckingAuth && !authUser) { 
   return (
     <div className='flex justify-center items-center h-screen'>
       <Loader className="size-10 animate-spin" /> 
     </div>
     );
+  };
       
     return (
     <div>
@@ -37,8 +38,8 @@ const App = () => {
         <Route path='/profile' element={<ProfilePage/>} />
     </Routes>
     </div>
-  )
-  }
-}
+  );
+};
+
 
 export default App;
