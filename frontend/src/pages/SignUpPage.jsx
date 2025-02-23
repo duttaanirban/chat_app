@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from 'react';
 import { useAuthStore } from '../store/useAuthStore';
 import { MessageSquare } from "lucide-react";
-import { User , Mail , Eye , Lock } from "lucide-react";
-
+import { User , Mail , Eye , Lock , Loader2 } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const SignUpPage = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +13,7 @@ const SignUpPage = () => {
         password: "",
     });
 
-    const {signup, isSignUp} = useAuthStore();
+    const {signup, isSigningUp} = useAuthStore();
 
     const validateForm = () => {};
 
@@ -115,9 +115,25 @@ const SignUpPage = () => {
               )}
             </button>
             </form>
-        </div>
 
+            <div className="text-center">
+            <p className="text-base-content/60">
+              Already have an account?{" "}
+              <Link to="/login" className="link link-primary">
+                Sign in
+              </Link>
+            </p>
+            </div>
         </div>
-    </div>;
+    </div>
+
+    {/*Right Side*/}
+
+    <AuthImagePattern 
+        title="Join our Community"
+        subtitle="connect with friends, share moments and stay in touch with your loved ones."
+    />
+
+</div>;
 };
 export default SignUpPage;
